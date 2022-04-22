@@ -41,4 +41,8 @@ class User extends Authenticatable
         // return $this->hasOne(Address::class,'user_id'); // select * from addresses where user_id = 1
         return $this->hasOne(Address::class,'u_id','id'); // if user_id is changed to u_id; and id is users id (primary key)
     }
+
+    public function posts(){
+        return $this->hasMany(Post::class,'u_id');
+    }
 }

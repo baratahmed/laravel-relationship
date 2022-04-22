@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Address;
+use App\Post;
 use App\User;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
@@ -155,6 +156,45 @@ class TestController extends Controller
         ]);
 
         return 'Users and Addresses have been created';
+    }
+
+    public function createPosts(){
+        Post::create([
+            'u_id' => 1,
+            'title' => 'post title 01'
+        ]);
+        Post::create([
+            'u_id' => 1,
+            'title' => 'post title 02'
+        ]);
+        Post::create([
+            'u_id' => 1,
+            'title' => 'post title 03'
+        ]);
+        Post::create([
+            'u_id' => 2,
+            'title' => 'post title 04'
+        ]);
+        Post::create([
+            'u_id' => 2,
+            'title' => 'post title 05'
+        ]);
+        Post::create([
+            'u_id' => 3,
+            'title' => 'post title 06'
+        ]);
+        Post::create([
+            'u_id' => 4,
+            'title' => 'post title 07'
+        ]);
+        Post::create([
+            'u_id' => 4,
+            'title' => 'post title 08'
+        ]);
+        Post::create([
+            'u_id' => 4,
+            'title' => 'post title 09'
+        ]);
     }
 
 }
