@@ -2,6 +2,7 @@
 
 use App\Address;
 use App\Post;
+use App\Tag;
 use App\User;
 
 /*
@@ -48,19 +49,44 @@ Route::get('/users', function(){
 });
 
 
-//One to Many
+//One to Many  + Many to Many
 Route::get('/posts', function(){
 
-    $posts = Post::with('user')->get();
+    $posts = Post::with('user','tags')->get();
     return view('posts.index',compact('posts'));
+
+
+    // $tag = Tag::first();
+    // $post = Post::with('tags')->first();
+    // $post->tags()->attach($tag);
+    // $post->tags()->attach([2,3,4]);
+    // $post->tags()->detach([2]);
+
+
+    // $post = Post::with('tags')->first();
+    // $post->tags()->detach();
+    // $post->tags()->attach([1,4]);
+    // Add detach + attach together Or use sync
+    // $post->tags()->sync([1,4]);
+    // dd($post);
 
 });
 
 
 
+Route::get('/tags', function(){
+
+    $tags = Tag::with('posts')->get();
+    return view('tags.index',compact('tags'));
+
+
+});
+
+
 
 Route::get('/generate-users-addresses', 'TestController@createUsersAndAddresses' );
 Route::get('/generate-posts', 'TestController@createPosts' );
+Route::get('/generate-tags', 'TestController@createTags' );
 
 
 

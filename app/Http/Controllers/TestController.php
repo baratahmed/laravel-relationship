@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Address;
 use App\Post;
+use App\Tag;
 use App\User;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
@@ -197,4 +198,19 @@ class TestController extends Controller
         ]);
     }
 
+    public function createTags(){
+        Tag::create([
+            'name' => 'Laravel'
+        ]);
+        Tag::create([
+            'name' => 'PHP'
+        ]);
+        Tag::create([
+            'name' => 'Javascript'
+        ]);
+        Tag::create([
+            'name' => 'VueJs'
+        ]);
+
+    }
 }

@@ -13,7 +13,11 @@
                         <h2>{{ $post->title}}</h2>
                         {{--  <h4>{{ optional($post->user)->name }}</h4>  --}}
                         <h4>{{ $post->user->name }}</h4>   {{-- optional()  or withDefault() in model  --}}
-                        <br>
+                        <ul>
+                            @foreach($post->tags as $tag)
+                                <li>{{ $tag->name }}</li>
+                            @endforeach
+                        </ul>
                     @endforeach
 
                 </div>
