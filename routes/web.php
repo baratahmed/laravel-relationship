@@ -22,6 +22,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// There are 11 events in Model Lifecycle
+// (retrieved, creating, created, updating, updated, saving, saved, deleting, deleted, restoring, restored)
+// Laravel provides 3 ways to use these events
+// (1. Event Listeners, 2. boot(), 3. Observer)
 Route::get('/home', 'HomeController@index')->name('home');
 
 
