@@ -52,9 +52,22 @@ Route::get('/users', function(){
 //One to Many  + Many to Many
 Route::get('/posts', function(){
 
+    // if pivot table has status column or attribute
+    // $post = Post::first();
+    // $post->tags()->attach([
+    //     1 => [
+    //         'status' => 'approved'
+    //     ]
+    // ]);
+
+
+
+    // $post = Post::first();
+    // dd($post->tags->first()->pivot->created_at);
+    // $post->tags()->attach(1);
+
     $posts = Post::with('user','tags')->get();
     return view('posts.index',compact('posts'));
-
 
     // $tag = Tag::first();
     // $post = Post::with('tags')->first();
@@ -78,7 +91,6 @@ Route::get('/tags', function(){
 
     $tags = Tag::with('posts')->get();
     return view('tags.index',compact('tags'));
-
 
 });
 

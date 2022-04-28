@@ -15,7 +15,7 @@
                         <h4>{{ $post->user->name }}</h4>   {{-- optional()  or withDefault() in model  --}}
                         <ul>
                             @foreach($post->tags as $tag)
-                                <li>{{ $tag->name }}</li>
+                                <li>{{ $tag->name }} | ({{ $tag->pivot->created_at }}) | ({{ $tag->pivot->status }}) </li>
                             @endforeach
                         </ul>
                     @endforeach

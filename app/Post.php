@@ -15,6 +15,9 @@ class Post extends Model
     }
 
     public function tags(){
-        return $this->belongsToMany(Tag::class, 'post_tag', 'post_id','tag_id');
+
+        return $this->belongsToMany(Tag::class, 'post_tag', 'post_id','tag_id')
+                ->withTimestamps()  // Creating Timestamp For pivot table
+                ->withPivot('status');  // To get the relationship for attribute 'status' from pivot table
     }
 }
