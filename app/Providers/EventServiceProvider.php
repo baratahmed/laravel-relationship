@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Category;
 use App\Events\UserCreated;
 use App\Listeners\UserCreatedListener;
+use App\Observers\CategoryObserver;
 use App\Observers\UserObserver;
 use App\User;
 use Illuminate\Support\Facades\Event;
@@ -38,5 +40,6 @@ class EventServiceProvider extends ServiceProvider
 
         // For Observer
         User::observe(UserObserver::class);
+        Category::observe(CategoryObserver::class);
     }
 }

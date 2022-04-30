@@ -4,3 +4,6 @@ php artisan make:listener UserCreatedListener -e UserCreated
 
 2) Creating an observer for an an specific Model
 php artisan make:observer UserObserver --model=User
+
+3) In Tinker
+factory(App\Category::class)->create();
