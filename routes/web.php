@@ -61,8 +61,18 @@ Route::get('/posts', function(){
     // if pivot table has status column or attribute
     // $post = Post::first();
     // $post->tags()->attach([
-    //     1 => [
+    //     1 => [     // 1 is tag id
     //         'status' => 'approved'
+    //     ]
+    // ]);
+
+    // $post = Post::first();
+    // $post->tags()->detach([1]); // To delete from post_tag table
+
+    // $post = Post::first();
+    // $post->tags()->sync([
+    //     2 => [     // first delete then add
+    //         'status' => 'rejected'
     //     ]
     // ]);
 
@@ -85,7 +95,7 @@ Route::get('/posts', function(){
     // $post = Post::with('tags')->first();
     // $post->tags()->detach();
     // $post->tags()->attach([1,4]);
-    // Add detach + attach together Or use sync
+    // Add detach + attach together Or ugit se sync
     // $post->tags()->sync([1,4]);
     // dd($post);
 
