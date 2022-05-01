@@ -17,7 +17,7 @@ class User extends Authenticatable
     // ];
 
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'project_id',
     ];
 
     /**
@@ -58,4 +58,13 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class,'u_id');
     }
+
+    public function project(){
+        return $this->belongsTo(Project::class);
+    }
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
+
 }

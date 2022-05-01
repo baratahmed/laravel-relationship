@@ -2,8 +2,11 @@
 
 use App\Address;
 use App\Post;
+use App\Project;
 use App\Tag;
+use App\Task;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +32,58 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category/{category}', 'CategoryController@show')->name('category.show');
+
+
+// Has Many Through
+
+// Projects
+//     id
+// Users
+//     id
+//     project_id
+// Tasks
+//     id
+//     user_id
+
+Route::get('/projects', function(){
+
+    // $project = Project::create([
+    //     'title' => 'Project A'
+    // ]);
+
+    // $user01 = User::create([
+    //     'name' => 'User One',
+    //     'email' => 'user01@gmail.com',
+    //     'password' => Hash::make('password'),
+    //     'project_id' => $project->id
+    // ]);
+
+    // $user02 = User::create([
+    //     'name' => 'User Two',
+    //     'email' => 'user02@gmail.com',
+    //     'password' => Hash::make('password'),
+    //     'project_id' => $project->id
+    // ]);
+
+    // $task01 = Task::create([
+    //     'title' => 'Task 01 for Project A by User 01',
+    //     'user_id' => $user01->id
+    // ]);
+    // $task02 = Task::create([
+    //     'title' => 'Task 02 for Project A by User 02',
+    //     'user_id' => $user01->id
+    // ]);
+    // $task03 = Task::create([
+    //     'title' => 'Task 03 for Project A by User 03',
+    //     'user_id' => $user02->id
+    // ]);
+
+    $project = Project::find(1);
+    // return $project->task;
+    // return $project->tasks;
+    return view('projects.index');
+
+});
 
 
 //One to One
