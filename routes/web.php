@@ -45,7 +45,52 @@ Route::get('/category/{category}', 'CategoryController@show')->name('category.sh
 //     id
 //     user_id
 
+##############
+
+// Has Many Through Relation using Pivot Model
+// Projects
+//     id
+// Users
+//     id
+// project_user
+//      project_id, user_id
+
+
 Route::get('/projects', function(){
+
+    ### Has Many Through Pivot
+    // $project1 = Project::create([
+    //     'title' => 'Project A'
+    // ]);
+    // $project2 = Project::create([
+    //     'title' => 'Project B'
+    // ]);
+
+    // $user01 = User::create([
+    //     'name' => 'User One',
+    //     'email' => 'user01@gmail.com',
+    //     'password' => Hash::make('password'),
+    // ]);
+
+    // $user02 = User::create([
+    //     'name' => 'User Two',
+    //     'email' => 'user02@gmail.com',
+    //     'password' => Hash::make('password'),
+    // ]);
+    // $user03 = User::create([
+    //     'name' => 'User Three',
+    //     'email' => 'user03@gmail.com',
+    //     'password' => Hash::make('password'),
+    // ]);
+
+    // $project1->users()->attach($user01);
+    // $project1->users()->attach($user02);
+    // $project1->users()->attach($user03);
+
+    // $project2->users()->attach($user01);
+    // $project2->users()->attach($user03);
+
+    #########################################
 
     // $project = Project::create([
     //     'title' => 'Project A'
@@ -66,19 +111,24 @@ Route::get('/projects', function(){
     // ]);
 
     // $task01 = Task::create([
-    //     'title' => 'Task 01 for Project A by User 01',
-    //     'user_id' => $user01->id
+    //     'title' => 'Task 01',
+    //     'user_id' => 1
     // ]);
     // $task02 = Task::create([
-    //     'title' => 'Task 02 for Project A by User 02',
-    //     'user_id' => $user01->id
+    //     'title' => 'Task 02',
+    //     'user_id' => 1
     // ]);
     // $task03 = Task::create([
-    //     'title' => 'Task 03 for Project A by User 03',
-    //     'user_id' => $user02->id
+    //     'title' => 'Task 03',
+    //     'user_id' => 2
+    // ]);
+    // $task03 = Task::create([
+    //     'title' => 'Task 04',
+    //     'user_id' => 3
     // ]);
 
-    $project = Project::find(1);
+    $project = Project::find(2);
+    return $project->tasks;
     // return $project->task;
     // return $project->tasks;
     return view('projects.index');
